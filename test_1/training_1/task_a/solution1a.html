@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1a - solution</title>
+    <style>
+        .color_example {
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 0 5px 0 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10pt;
+        }
+    </style>
+    <script>
+
+        function start_click() {
+            window.start_date = Date.now();
+            document.getElementById('myform').removeAttribute('disabled');
+            document.getElementById('email').setAttribute('disabled','YES');
+        }
+
+        function trim(s) {
+            if (s == null)
+                return '';
+            while (s.substring(0, 1) === ' ') {
+                s = s.substring(1, s.length);
+            }
+            while (s.substring(s.length - 1, s.length) === ' ') {
+                s = s.substring(0, s.length - 1);
+            }
+            return s;
+        }
+
+        function checkText(theInput, type) {
+            myValue=trim(theInput.value);
+            const regex = /^[A-Z][a-z]*(?: [A-Z][a-z]*)*$/;
+            imputValue = theInput.value;
+            if (myValue == "") {
+                theInput.style.backgroundColor = "red";
+                document.getElementById(`err_${type}_name`).innerHTML="The field can't be empty!";
+                return false;
+            } else if (!imputValue.match(regex)) {
+                theInput.style.backgroundColor = "red";
+                document.getElementById(`err_${type}_name`).innerHTML = `The ${type} name doesn't match required pattern!`;
+                return false; 
+            } else {
+                theInput.style.backgroundColor = "green";
+                document.getElementById(`err_${type}_name`).innerHTML = "";
+                create_mail();
+                return true;
+            }
+        }
+
+        function create_mail() {
+            if (document.getElementById('first_name').style.backgroundColor == "green" && document.getElementById('last_name').style.backgroundColor == 'green' ){
+                name = document.getElementById('first_name').value[0].toLowerCase();
+                surname = document.getElementById('last_name').value.toLowerCase();
+                document.getElementById('email').setAttribute('value',`${name}${surname}@mini.pw.edu.pl`)
+            }
+        }
+
+        function check_password(theInput) {
+            var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+            name = document.getElementById('first_name').value.toLowerCase();
+            if (!theInput.value.match(regex)) {
+                theInput.style.backgroundColor = "red";
+                document.getElementById(`err_password`).innerHTML = "Password doesn't match required pattern!";
+                return false; 
+            } else if (theInput.value.toLowerCase().includes(name)) {
+                theInput.style.backgroundColor = "red";
+                document.getElementById(`err_password`).innerHTML = "Password can't include name!";
+                return false;
+            } else {
+                theInput.style.backgroundColor = "green";
+                document.getElementById(`err_password`).innerHTML = "";
+                return true;
+            }
+        }
+
+        window.addEventListener("click", function(event) {
+            if (document.getElementById('first_name').style.backgroundColor == "green" && 
+            document.getElementById('last_name').style.backgroundColor == 'green' && 
+            document.getElementById('password').style.backgroundColor == 'green') {
+                const end_date = Date.now()
+                const time = end_date - start_date;
+                document.getElementById('counter').innerHTML = `${Math.floor(time/ 1000)} seconds`;
+            }
+        });
+
+    </script>
+</head>
+
+<body>
+<h1>Task 1a - solution</h1>
+
+
+<button id="startButton" onclick="start_click();">Start</button>
+<form>
+    <fieldset id="myform" disabled>
+        <legend>Wpisz hasło</legend>
+        <table>
+            <tr>
+                <td><label for="first_name">Imię</label></td>
+                <td><input class="control" type="text" name="first_name" id="first_name" onfocusout="checkText(this, 'first');"></td>
+                <td id="err_first_name"><span></span></td>
+            </tr>
+            <tr>
+                <td><label for="last_name">Nazwisko</label></td>
+                <td><input class="control" type="text" name="last_name" id="last_name" onfocusout="checkText(this, 'last');"></td>
+                <td id="err_last_name"><span></span></td>
+            </tr>
+            <tr>
+                <td><label for="email">e-mail</label></td>
+                <td><input type="text" name="email" id="email" onload="create_mail();"></td>
+                <td id="err_email"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Hasło</label></td>
+                <td><input class="control" type="password" name="password" id="password" onchange="check_password(this);"></td>
+                <td id="err_password"><span></span></td>
+            </tr>
+
+        </table>
+
+    </fieldset>
+</form>
+<div id="counter">0</div>
+</body>
+</html>

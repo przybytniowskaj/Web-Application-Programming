@@ -1,0 +1,77 @@
+body{
+    background-color: black;
+    background-image: url("img/star.png");
+    background-position: right;
+    background-size:50%;
+    text-decoration: white;
+    color: white;
+}
+
+#titles{
+    border-left: dashed green 3px;
+    border-top: solid red 4px;
+    border-bottom: dashed thick purple ;
+    border-right: solid yellow 4px;
+    text-align: center;
+}
+
+.subtitles{
+    background-color: gray;
+}
+
+.authors{
+    text-transform: uppercase;
+}
+
+#d1:hover, #d2:hover, #d3 :hover{
+    background-color: blue;
+
+}
+
+#d1, #d2, #d_3{
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    margin: 15px;
+    width: 50%;
+}
+
+
+#andr, #mega, #sek{
+    position: right;
+    right:0em;
+    width:30px;
+    background-color: white;
+}
+
+
+
+#ending{
+    position:relative;
+    top:10em;
+    text-align: center;
+    width:100%;
+    background-color: white;
+    border-top: dashed red 3px;
+    color: black;
+}
+
+table td, tr{
+    border: solid 3px white;
+
+}
+
+table td:first-child, tr:first-child {
+    border: solid green 3px;
+}
+
+table tr:nth-child(1){
+    border: solid green 3px;
+}
+
+#rakieta{
+    opacity: 0.5;
+    width:50px;
+    position: fixed;
+    left: 20em;
+}

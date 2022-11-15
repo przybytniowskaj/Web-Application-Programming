@@ -1,0 +1,87 @@
+<!DOCTYPE html5>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="get" action="http://someserver/not_specified_yet">
+    <fieldset>
+    <legend accesskey="M">Product info</legend> 
+        <table>
+            <tr>
+                <td align="right"><label for="pname">Product name</label> </td>
+                <td><input type="text" autocomplete="on" placeholder="LCD monitor" tabindex="2" id="pname" name="prodname" maxlength="30" size="20" required pattern="[A-Z][a-z]*"></td>
+            </tr>
+            <tr>
+                <td align="right"><label for="pricef">Price</label> </td>
+                <td><input type="text" value=250.0 tabindex="2" id="pricef" name="pricef" maxlength="30" size="20" disabled></td>
+            </tr>
+            <tr>
+                <td align="right"><label for="proddesc">Product Description</label></td>
+                <td><textarea id="proddesc" placeholder="Write here product description." name="proddesc" rows="5" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <td align="right"><label for="prod">Produced in</label> </td>
+                <td><select name=" optionlist " onChange="combo(this, 'demo')" id = "prod">
+                    <optgroup label="Asia">
+                        <option>China</option>
+                        <option>Vietnam</option>
+                    </optgroup>
+                    <optgroup label="Europe">
+                        <option>Poland</option>
+                    </optgroup>
+                    
+                </select></td>
+            </tr>
+            <tr>
+                <td align="right"><label for="off">Offered in</label></td>
+                <td><select name="languages" id="off" size="4">
+                    <option>China</option>
+                    <option>Vietnam</option>
+                    <option>Poland</option>
+                    <option>France</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td align="right"><label for="avail">Currently not available</label></td>
+                <td><input type="checkbox" id="avail"></td>
+            </tr>
+            <tr>
+                <td align="right"><label for="guar">Guarantee</label></td>
+                <td>
+                    <input type="radio" id="12msc" name="drone" value="12msc" checked>
+                    <label for="12msc">12 months</label>
+                    <br>
+                    <input type="radio" id="24msc" name="drone" value="24msc">
+                    <label for="huey">24 months</label>
+                    <br>
+                    <input type="radio" id="60msc" name="drone" value="60msc">
+                    <label for="huey">60 months</label>
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><label for="photo">Product Photo</label></td>
+                <td><input type="file" id="myFile" name="filename"></td>
+            </tr>
+
+            <tr>
+                <td align="right">Producer's Help Desk (in @gmail.com domain)</td>
+                <td><input type="email" pattern=".+@gmail.com"</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"/></td>
+            </tr>
+
+        
+
+        
+    </fieldset>
+    </form>
+    
+</body>
+</html>

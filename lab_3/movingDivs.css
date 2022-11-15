@@ -1,0 +1,118 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: yellow;
+}
+
+#top-left img {
+    float: left;
+    width: 4em;
+}
+
+#top-right img {
+    float: right;
+    width: 5em;
+}
+
+header {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+header:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+header article {
+    width: 30%;
+    height: 6em;
+    float: left;
+    margin-right: 4.5%;
+    margin-bottom: 1em;
+    margin-top: 0;
+    background: green;
+    border: solid thin black;
+    overflow: hidden;
+}
+
+header article:last-child {
+    margin-right: 0;
+}
+
+header article:hover {
+    height: auto;
+    z-index: 2;
+}
+
+header:hover {
+    z-index: 2;
+}
+
+#top-right {
+    text-align: right;
+}
+
+#top-center {
+    text-align: justify;
+}
+
+.left-panel {
+    position: fixed;
+    left: 0;
+    height: 10em;
+    width: 15em;
+    background: turquoise;
+    padding: 0;
+    overflow: hidden;
+    border: dashed red thin;
+}
+
+.left-panel:hover {
+    width: auto;
+}
+
+#resources {
+    top: 12em;
+}
+
+#htmldoc {
+    top: 23em;
+    height: 100px;
+}
+
+#books {
+    top: 31em;
+}
+
+.right-panel {
+    margin-left: auto;
+    width: 10em;
+    height: 25em;
+    overflow: hidden;
+    border: solid thin black;
+    margin-bottom: 5em;
+}
+
+.right-panel:hover {
+    width: 20em;
+    overflow: scroll;
+}
+
+main {
+    padding-top: 5em;
+    overflow: scroll;
+    position: absolute;
+    top: 6em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: dashed thin red;
+    z-index: 0;
+}
+
+a:link {
+    color: black;
+}

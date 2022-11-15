@@ -1,0 +1,42 @@
+table.table1{
+    border: solid thick black ;
+}
+
+table.table1 img {
+    border: solid thick red;
+    background: white;
+}
+
+table.table1 tr:first-child>td,
+table.table1 tr:first-child>th {
+    background: green;
+}
+
+table.table1 tr:last-child>td {
+    background: yellow;
+}
+
+table.table1 tr:last-child>th{
+    background-color: aqua;
+}
+
+table.table1 td[rowspan] {
+    background: rgb(55, 55, 81);
+}
+
+table.table1 td[colspan="2"] {
+    font-weight: bold;
+    text-align: right;
+}
+
+/* even columns */
+table.table1 td:nth-child(2n){
+    background-color: brown;
+    border: solid thick black;
+}
+
+/* odd rows - cell 21 is in 2nd row */
+table.table1 td:nth-child(1){
+    background-color: yellow;
+    border: solid green 3px;
+}

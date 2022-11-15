@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1a - solution</title>
+    <link rel="stylesheet" href="solution1d.css" type="text/css">
+    <script>
+
+        function trim(s) {
+            if (s == null)
+                return '';
+            while (s.substring(0, 1) === ' ') {
+                s = s.substring(1, s.length);
+            }
+            while (s.substring(s.length - 1, s.length) === ' ') {
+                s = s.substring(0, s.length - 1);
+            }
+            return s;
+        }
+        
+        function checkName(theInput) {
+            myValue=trim(theInput.value);
+            const regex = /^[a-zA-Z0-9]+$/;
+            inputValue = theInput.value;
+            if (myValue == "") {
+                alert("UserName can not be empty!")           
+                return false;
+            } else if (!inputValue.match(regex)) {
+                alert("UserName has to contain only letters and numbers")           
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function checkPassword(theInput) {
+            inputValue = theInput.value;
+            if (inputValue.length < 8) {
+                alert("Password has to be at least 8 symbols long")           
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function checkRPassword(theInput){
+            inputValue = theInput.value;
+            if (inputValue != document.getElementById("haslo").value) {
+                alert("Two passwords can not differ!")           
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function returnToPreviousPage() {
+            window.history.back();
+        }
+
+        function validateAll() {
+            if (checkName(document.getElementById("nazwa")) && checkPassword(document.getElementById("haslo")) && checkRPassword(document.getElementById("powhaslo")) && document.getElementById("regul").checked) {
+                alert("wszytsko OK!")
+                return true;
+            } else {
+                event.preventDefault();
+                return 
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Zadanie Punktowane HTML+CSS. Julia Przybytniowska</h1>
+
+    <div class="frames" id="frame1">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet orci sapien. Curabitur vitae ultricies nisl, vel elementum urna. In id velit mattis, pulvinar magna ut, placerat urna. Phasellus at diam bibendum, pellentesque mi id, suscipit sapien. Donec consectetur metus luctus erat commodo pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In quis ligula est. Donec rhoncus egestas pharetra.</p>
+        <p>Curabitur eu enim id elit hendrerit luctus vel sed massa. Duis eros odio, ultricies non risus et, feugiat vehicula est. Quisque hendrerit, libero nec pharetra faucibus, elit nulla auctor quam, eget molestie mi odio non augue. In sem eros, tempus quis turpis ac, egestas porta velit. Aliquam erat volutpat. Donec non mollis erat. Nam sit amet eros nec sem dapibus laoreet in at elit. Suspendisse maximus, mi sit amet dictum porta, orci mauris tincidunt enim, eu sollicitudin lectus urna eu quam.</p>
+        <p>Fusce mollis nunc quis tellus imperdiet pretium. Suspendisse condimentum tincidunt nulla. Donec laoreet porttitor nisi id hendrerit. Aliquam erat volutpat. Proin mattis magna quis diam congue accumsan. Vestibulum pulvinar lectus in fringilla rhoncus. Praesent dictum urna purus, eget tempus nibh elementum at. Nam at diam commodo, tincidunt justo blandit, scelerisque turpis. Nunc arcu nunc, mattis sit amet sapien eu, mollis molestie mauris. Nulla nunc erat, tincidunt eget tincidunt et, dignissim sed lacus. Sed vitae lobortis arcu, id luctus sem. Quisque luctus et felis eu suscipit.</p>
+        <p>Curabitur sit amet pretium sapien, et ultricies risus. Cras ac lacus in urna volutpat laoreet nec ac nisi. Quisque rutrum lectus at diam hendrerit dapibus. Morbi pulvinar quam pellentesque, ullamcorper nibh sed, dictum dui. Nunc sollicitudin justo a elementum faucibus. Donec faucibus volutpat urna. Quisque nunc mauris, blandit non lacinia sodales, fermentum in ligula. Aenean vitae odio ut erat fermentum lacinia. Suspendisse pharetra molestie mauris, quis vehicula dui. Proin non condimentum turpis. Sed arcu nisi, feugiat id tellus eu, posuere interdum quam. Sed ullamcorper lectus tortor.</p>
+        <p>5th paragraph</p>
+    </div>
+
+    <div class="frames" id="frame2">
+        <h2>Rejestracja</h2>
+        <form method="get" action="#" id="form" onsubmit="validateAll();">
+            <fieldset>
+                <table class="table">
+                    <tr>
+                        <td><label for="naz">Nazwa użytkownika</label></td>
+                        <td><input id="nazwa" placeholder="znaki alfanumeryczne" onchange="checkName(this);"></td>
+                    </tr>
+                    <tr>
+                        <td><label type="text" for="has">Hasło</label></td>
+                        <td><input id="haslo" placeholder="minimum 8 znakow" onchange="checkPassword(this);"></td>
+                    </tr>
+                    <tr>
+                        <td><label type="text" for="powhas">Powtórz hasło</label></td>
+                        <td><input id="powhaslo" onchange="checkRPassword(this);"></td>
+                    </tr>
+                    <tr>
+                        <td><label type="text" for="reg">Zapoznałem się z regulaminem</label></td>
+                        <td><input type="checkbox" id="regul"></td>
+                    </tr>
+                    <tr ><td colspan="2" align="left"><button id="reje" onclick="validateAll();">Zarejestruj</button>
+                        <button id="wyczysc">Wyczyść</button></td></tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="frames" id="frame3">
+
+        <a href="https://pl.wikipedia.org/wiki/Albert_Einstein">Albert Einstein</a> równanie E=mc<sup>2</sup>. Autor słow:
+        <blockquote>Kazdy cos cos</blockquote>
+        <div align="center"> <img src="m_logo.gif"> </div>
+
+        <h3>Lista Numerowana</h3>
+        <ol>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ol>
+        <h3>Lista wypunktowana</h3>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+        
+
+</body>

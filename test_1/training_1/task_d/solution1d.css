@@ -1,0 +1,22 @@
+.frames{
+    border: solid 2px black ;
+    width: 30%;
+    padding: 10px;
+    position: absolute;
+}
+
+#frame2{
+    left: 34%;
+}
+
+#frame3{
+    right: 0%;
+}
+
+fieldset table th,td{
+    border: dotted silver 1px;
+}
+
+fieldset{
+    border: none;
+}

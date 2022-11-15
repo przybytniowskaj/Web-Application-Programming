@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>JavaScript-based modification of document content</title>
+    <meta charset="utf-8">
+    <script>
+        function addElement() {
+            let newline = document.createElement("option");
+            document.getElementById("country").appendChild(newline);
+            let txt = document.createTextNode(document.getElementById('newcountry').value);
+            newline.appendChild(txt);
+            alert('The code of the country element is now: ' + document.getElementById('country').innerHTML);
+        }
+    </script>
+</head>
+
+<body>
+<p>Please observe the dynamic changes in this form:</p>
+<form method="GET" action="#" onSubmit="return false;">
+    <table>
+        <tr>
+            <td><label for="country">Country</label></td>
+            <td><select name="Country" id="country" disabled>
+                <option>Poland</option>
+                <option>Germany</option>
+            </select></td>
+
+        <tr>
+            <td colspan="2"><input type="button" onClick="document.getElementById('country').removeAttribute('disabled');"
+                       value="Enable country"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" onClick="document.getElementById('country').setAttribute('disabled','YES');"
+                       value="Disable country"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" onClick="document.getElementById('country').style.display='none';"
+                       value="Hide country"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" onClick="document.getElementById('country').style.display='block';"
+                       value="Show country"></td>
+        </tr>
+        <tr>
+            <td><label for="newcountry">New country:</label><input ID="newcountry"></td>
+            <td><input type="button" onClick="addElement();" value="Add country"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html xmlns="http://schemas.microsoft.com/intellisense/xhtml5">
+    <head>
+        <title>Basic table</title>
+        <link rel="stylesheet" type="text/css" href="table.css">
+    </head>
+    <body>
+        <table class="table1">
+            <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+            </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th colspan="4">Stopka</th>
+                </tr>
+            </tfoot>
+            <tbody>
+            <tr>
+                <td>Cell 11</td>
+                <td rowspan="2" colspan="2">
+                    <img style="height: 100px; width: 100px;" src="m_logo.gif" alt="Logo mini" />                    
+                </td>
+                <td>Cell 14</td>
+            </tr>
+            <tr>
+                <td>Cell 21</td>
+                <td rowspan="2">cos<br>cos<br>cos<br>cos<br>cos</td>
+            </tr>
+            <tr>
+                <td rowspan="2"><a href="basics&imageMaps.html">Cell 31</a></td>
+                <td rowspan="2">Cell 32</td>
+                <td rowspan="2">Cell 33</td>
+            </tr>
+            <tr>
+                <td>bla</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        <table class="table2">
+            <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Cell 11</td>
+                <td>Cell 12</td>
+            </tr>
+            <tr>
+                <td>Cell 21</td>
+                <td rowspan="2">cos<br>cos<br>cos</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Cell 32</td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

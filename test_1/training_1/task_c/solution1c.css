@@ -1,0 +1,61 @@
+#frame1{
+    background-color: aqua;
+    position: absolute;
+    left:0%;
+}
+
+.frames{
+    border: solid 2px black ;
+    border-radius: 5px;
+    width: 30%;
+    padding: 5px;
+}
+
+#frame2{
+    position: absolute;
+    left: 34%;
+}
+
+.container{
+    position: relative;
+    left:68%;
+    height: 60em;
+}
+
+#frame4{
+    position: fixed;
+    background-image: url(m_logo.gif);
+    height: 207px;
+    top:15em;
+    left:80%;
+    width:300px;
+}
+
+#frame3, #frame4{
+    background-color: white;
+}
+
+#frame3{
+    position: relative;
+    height: 15em;
+    overflow: hidden;
+    z-index:10;
+}
+
+#frame4:hover{
+    position: fixed;
+    z-index: 55;
+}
+
+#frame3:hover{
+    height: auto;
+    background-color: gray;
+}
+
+#frame3 h2{
+    text-transform: uppercase;
+}
+
+fieldset table th,td{
+    border: dotted green 1px;
+}

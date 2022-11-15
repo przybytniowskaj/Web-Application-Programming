@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+    <style type="text/css">
+        button {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+        
+        .positive {
+            background-color: green;
+        }
+        
+        .negative {
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript">
+
+        var width = 0;
+        var height = 0;
+        var counter = 0;
+        var step = 1000;
+
+        window.onload = function(){
+            width = window.innerWidth || document.documentElement.clientWidth;
+            height = window.innerHeight || document.documentElement.clientHeight;
+            
+            var buttons = document.getElementsByTagName('button');
+            for(var i = 0; i < buttons.length; i++)
+                initialize_button(buttons[i]);
+                
+            display_counter();
+        }
+
+        function initialize_button(button){
+            var x = Math.round(Math.random() * (width-20));
+            var y = Math.round(Math.random() * (height-20));
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+
+            button.onclick = button_clicked;
+
+            var time_handler = create_time_handler(button,x, y);
+            time_handler();
+
+        }
+        
+        function button_clicked(){
+            if(this.className == 'positive'){
+                counter += 5;
+            }else{
+                counter -= 10;
+            }
+            if(counter >= 20){
+                counter = 0;
+                var button = document.createElement('button');
+                button.className= 'negative';
+                initialize_button(button);
+                document.body.appendChild(button);
+                step = Math.round(step/2);
+                if(step <= 0){
+                    step = 1;
+                }
+            }
+            display_counter();
+        }
+
+        function display_counter(){
+            var div_counter = document.getElementById('counter');
+
+            while(div_counter.childNodes.length>0) 
+                div_counter.removeChild(div_counter.childNodes[0])
+            var text_counter = document.createTextNode(counter);
+            div_counter.appendChild(text_counter);
+        }
+
+        function create_time_handler(button, x, y){
+            return function(){
+                x += Math.round(Math.random()*10 - 5);
+                y += Math.round(Math.random()*10 - 5);
+                if(x > width - 20) x = width - 20
+                else if(x < 0) x = 0;
+                if(y > height - 20) y = height - 20
+                else if(y < 0) y = 0;
+
+                button.style.left = x + 'px';
+                button.style.top = y + 'px';
+
+                setTimeout(create_time_handler(button, x, y), step);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="counter"></div>
+    <button class="positive">$</button>
+    <button class="negative">~</button>
+    <button class="positive">$</button>
+    <button class="negative">~</button>
+    <button class="positive">$</button>
+    <button class="negative">~</button>
+    <button class="positive">$</button>
+    <button class="negative">~</button>
+    <button class="positive">$</button>
+    <button class="negative">~</button>
+    <button class="positive">$</button>
+    <button class="negative">~</button>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>HTML with JavaScript-based validation</title>
+    <script>
+
+        function trim(s) {
+            if (s == null)
+                return '';
+            while (s.substring(0, 1) === ' ') {
+                s = s.substring(1, s.length);
+            }
+            while (s.substring(s.length - 1, s.length) === ' ') {
+                s = s.substring(0, s.length - 1);
+            }
+            return s;
+        }
+
+        function checkIfNotEmpty(theInput, label) {
+
+            inputValue = trim(theInput.value);
+            if (inputValue == ""){
+                theInput.focus();
+                alert("This input cant be empty")
+
+                return false
+            }
+            return true
+
+        }
+
+        function checkId(theInput){
+            myValue=trim(theInput.value);
+            if (myValue ==""){
+               alert("The number can't be empty");
+               theInput.focus();
+
+               return false;
+            }
+            myValue=theInput.value;
+              for (i=0;i<myValue.length;i++){
+                myKeyCode= myValue.substring(i,i+1);
+                if(!(myKeyCode >='0' && myKeyCode <= '9')){
+                    alert("Only numbers can be accepted -_"+myKeyCode+"_ is not a valid digit");
+                    theInput.focus();
+                    return false;
+                }
+                themonth = myValue.substring(2,4);
+
+        }}
+
+        function checkAge(theInput) {
+            myValue=trim(theInput.value);
+            if (myValue ==""){
+               alert("The age cant be empty");
+               theInput.focus();
+
+               return false;
+            }
+            myValue=theInput.value;
+              for (i=0;i<myValue.length;i++){
+                myKeyCode= myValue.substring(i,i+1);
+                if(!(myKeyCode >='0' && myKeyCode <= '9')){
+                    alert("Only numbers can be accepted -_"+myKeyCode+"_ is not a valid digit");
+                    theInput.focus();
+                    return false;
+                }
+              }
+
+          return true
+        }
+
+
+        function validateForm() {
+            if (!checkAge(document.getElementById('first')))
+                return false;
+            if (!checkIfNotEmpty(document.getElementById('second'), 'Surname'))
+                return false;
+            if (!checkIfNotEmpty(document.getElementById('third'), 'Identifier'))
+                return false;
+
+            alert('The data can be submitted');
+            return true;
+        }
+
+    </script>
+</head>
+<body>
+<p>Please describe new user:</p>
+<form method="GET" action="#" onSubmit="return validateForm();">
+    <table>
+        <tr>
+            <td><label for="first">Age</label></td>
+            <td><input id="first" name="age" onChange="return checkAge(this);"></td>
+        </tr>
+        <tr>
+            <td><label for="second">Surname</label></td>
+            <td><input id="second" name="surname" maxlength="40"
+                       onChange="return checkIfNotEmpty(this,'Surname');">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="third">Identifier</label></td>
+            <td><input id="third" name="identifier" maxlength="40"
+                       onChange="return checkIfNotEmpty(this,'Identifier');">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="fourth">PersonaId</label></td>
+            <td><input id="fourth" name="personalid" length="11"
+                       onChange="return checkId(this);">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit"></td>
+        </tr>
+    </table>
+
+</form>
+
+</body>
+</html>

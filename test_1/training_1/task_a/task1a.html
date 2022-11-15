@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 8 - wariant A</title>
+    <style>
+        .color_example {
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 0 5px 0 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Lab 8 - punktowany. Wariant A</h1>
+<ul>
+    <li>Czas pisania zadania : 90 minut.</li>
+    <li>Rozwiązania należy zwrócić przez platformę Moodle.</li>
+    <li>Należy załączyć rozwiązanie w formie pliku html o nazwie <em>lab_8_html_&lt;nazwisko&gt;_A.html</em> uzupełniając
+        własnym nazwiskiem. Osadź kod JS w dokumencie.
+    </li>
+    <li>Można (ale nie trzeba) korzystać z biblioteki jQuery, pod warunkiem, że będzie poprawnie zaimportowana z CDN.
+    </li>
+    <li>Dokument musi być poprawnym HTML'em. Obowiązują punkty ujemne -1 pkt za każdy błąd z <a
+            href="https://validator.w3.org/">walidatora</a>. Jeśli jeden błąd w kodzie spowoduje więcej komunikatów z
+        walidatora, to nie będą one dodatkowo obniżać oceny.
+    </li>
+</ul>
+
+<p>
+    Proszę o zamieszenie następującego oświadczenia w komentarzu na początku przesyłanego pliku:
+    <q>Potwierdzam samodzielność wykonania przesłanej pracy oraz
+        niekorzystanie przeze mnie z niedozwolonych źródeł</q> oraz swoje imię i nazwisko!<br>
+</p>
+<ul>
+    <li>(2 pkt) Naciśnięcie przycisku <em>Start</em> odblokowuje formularz (ale nie pole pole email!)</li>
+    <li>(2 pkt) Imię i nazwisko muszą zaczynać się od wielkiej litery i zawierać tylko litery.</li>
+    <li>(4 pkt) Pole email jest uzupełniane automatycznie na podstawie poprawnego imienia i nazwiska w taki sposób, że
+        zawiera pierwszą literę imienia oraz nazwisko (wyłącznie małe litery) oraz suffix: @mini.pw.edu.pl<br>
+        Na przykład dla danych: Jan Kowalski email to: jkowalski@mini.pw.edu.pl
+        To pole jest zawsze nie aktywne.
+    </li>
+    <li>(4 pkt) Hasło musi mieć conajmniej:
+        <ul>
+            <li>(1 pkt) 8 znaków</li>
+            <li>(1/3 pkt) jedną małą literę</li>
+            <li>(1/3 pkt) jedną wielką literę</li>
+            <li>(1/3 pkt) jedną cyfrę</li>
+            <li>(2 pkt) ponadto imię nie jest podsłowem hasła (bez względu na wielkość pierwszej litery)</li>
+        </ul>
+    <li>(2 pkt) Tło pola tekstowego zmienia się w zależności od poprawności wpisanej treści
+        (<span class="color_example" style="background-color: #8c8;">Poprawne</span>,
+        <span class="color_example" style="background-color: #f99">Niepoprawne</span>).
+    </li>
+    <li>(6 pkt) Informacje o błędach dotyczących hasła sa dynamicznie pokazywane jako element <code>&lt;span&gt;</code>
+        po prawej stronie pola w dedykowanej komórce tabeli. Komunikat powinien informować jaki warunek hasła został
+        niespełniony i natychmiast znikać po jego spełnieniu.
+    </li>
+    <li>(4 pkt) Poniżej ramki w <code>&lt;div id="counter"&gt;</code> umieść licznik czasu od naciśnięca przycisku,
+        licznik zatrzyma się po pierwszym poprawnym uzupełnieniu pól (nie ma potrzeby restartowania w przypadku zmiany
+        na niepopoprawne wartości).
+    </li>
+</ul>
+
+<hr>
+<button id="startButton">Start</button>
+<form>
+    <fieldset id="myform" disabled>
+        <legend>Wpisz hasło</legend>
+        <table>
+            <tr>
+                <td><label for="first_name">Imię</label></td>
+                <td><input type="text" name="first_name" id="first_name"/></td>
+                <td id="err_first_name"></td>
+            </tr>
+            <tr>
+                <td><label for="last_name">Nazwisko</label></td>
+                <td><input type="text" name="last_name" id="last_name"/></td>
+                <td id="err_last_name"></td>
+            </tr>
+            <tr>
+                <td><label for="email">e-mail</label></td>
+                <td><input type="text" name="email" id="email"/></td>
+                <td id="err_email"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Hasło</label></td>
+                <td><input type="password" name="password" id="password"/></td>
+                <td id="err_password"></td>
+            </tr>
+
+        </table>
+
+    </fieldset>
+</form>
+<div id="counter">0</div>
+</body>
+</html>

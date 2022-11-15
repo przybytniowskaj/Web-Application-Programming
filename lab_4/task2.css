@@ -1,0 +1,14 @@
+.formfield label {
+	display: inline-block;
+	width: 20em;
+	border-bottom: solid thin black;
+	overflow: hidden;
+}
+
+.formfield label:after {
+	float: right;
+}
+
+.formfield :focus{
+	border-color: red;
+}

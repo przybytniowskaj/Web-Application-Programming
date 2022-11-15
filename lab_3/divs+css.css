@@ -1,0 +1,69 @@
+h1, h2{
+    color: aquamarine; 
+}
+
+h1:hover{
+    color: black
+}
+
+#web-resources h2{
+    background-color: beige;
+}
+
+p{
+    border: dashed thick blueviolet;
+    padding-top: 2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 80%;
+}
+
+body{
+    background-image: "m_logo.gif";
+    background-position: 50% 50%;
+    background-repeat: repeat-y;
+    background-color: darkslategray;
+    margin: 3em 1em 5em 2em;
+}
+
+.year{
+    font-weight: bold;
+}
+
+.authors{
+    text-transform: uppercase;
+}
+
+.publisher{
+    text-decoration: underline;
+}
+
+a{
+    text-decoration: none;
+    color: red;
+    font-size: x-large;
+}
+
+a[href$=".com/"]{
+    font-size: 10px;
+}
+
+a:visited{
+    color: green;
+    font-size: 40px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+#content{
+    background-color: gray;
+}
+
+#web-resources{
+    background-color: pink;
+    position: absolute;
+    top: 120%;
+    left: 150px;
+}

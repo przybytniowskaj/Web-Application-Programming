@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Julia Przybytniowska</title>
+    <link rel="stylesheet" href="graded_labs1.css" type="text/css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+
+    <div id="titles">
+        <div class="subtitles" id="1">
+            <h1>Loty w kosmos dla Ciebie</h1>
+        </div>
+        <div class="subtitles" id="2">
+            <h2>Poznaj naszych przyjaciół z odległych galaktyk</h2>
+        </div>
+    </div>
+
+    <h3>Formularz rezerwacji</h3>
+    <form>
+        <fieldset>
+            <legend>Data rezerwacji</legend>
+            <label class="labels">Data</label>
+            <input type="date">
+        </fieldset>
+        <fieldset>
+            <legend>Dane</legend>
+            <label class="labels">Cel podróży</label>
+            <select name=" optionlist " onChange="combo(this, 'demo')" id = "prod">
+                    <option>Andromedziaki</option>
+                    <option>Magellaniaki</option>
+                    <option>Sekstansowianie</option>                
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Informacje o grupie </legend>
+            <label class="labels">Liczba osob</label>
+            <input type="text" id="liczbaosob" onchange="checkLiczbaOsob(this);">
+            <span id="err_liczba_osob"> </span>
+            <br>
+            <label class="labels">Kod zniżki</label>
+            <input type="text" id="znizka" onchange="checkZnizka(this);">
+            <span id="err_znizka"> </span>
+            <br>
+            <label class="labels">Nr tel</label>
+            <input type="text" id="znizka" placeholder="+48123456789">
+
+
+        </fieldset>
+        <button>Rezerwuj już dziś</button>
+    </form>
+
+    <h4>Tabela Odlotów</h4>
+    <table class="table1" align="center">
+        <thead>
+        <tr>
+            <th>Miesiąc</th>
+            <th>Poniedziałek</th>
+            <th>Wtorek</th>
+            <th>Środa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Styczeń</td>
+            <td colspan="3">&#62;Brak lotów&#60;</td>
+        </tr>
+        <tr>
+            <td>Luty</td>
+            <td rowspan="2" colspan="2">Brak lotów </td>
+            <td>12:15</td>
+        </tr>
+        <tr>
+            <td> Marzec</td>
+            <td>13:15</td>
+        </tr>
+        </tbody>
+    </table>
+    
+
+
+
+    <div id="ending">
+        <p>Centrum lotów <br>
+            POLGAL & Ska zoo. <br>
+          ul. Gwiezdna<br>
+          12-345 Gwiazdowo</p>
+    </div>
+
+</body>

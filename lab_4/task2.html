@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with validation</title>
+    <link rel="stylesheet" type="text/css" href="task2.css">
+    <script>
+        function trim(s) {
+            if (s == null)
+                return '';
+            while (s.substring(0, 1) == ' ') {
+                s = s.substring(1, s.length);
+            }
+            while (s.substring(s.length - 1, s.length) == ' ') {
+                s = s.substring(0, s.length - 1);
+            }
+            return s;
+        };
+
+        function validate(){
+            if (!checkAge(document.getElementById('age')))
+                return false;
+            if (!checkSurname(document.getElementById('surname')))
+                return false;
+            if (!checkId(document.getElementById('id')))
+                return false;
+
+            return true;
+        }
+
+        function checkAge(age){
+            ageVal = trim(age.value);
+            if (ageVal == ""){
+                alert('Age cannot be empty!')
+                age.focus();
+                return false;
+            }
+            ageVal = age.value;
+            var regex=/^[0-9]+$/;
+            if (ageVal.match(regex)){
+                alert("Age must be numeric!")
+                age.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function checkSurname(surname){
+            return false;
+        }
+
+        function checkId(id){
+            return false;
+        }
+    </script>
+    
+</head>
+
+<body>
+    <h1>Form</h1>
+    <form action="#" onsubmit="return false" autocomplete="off">
+        <div class="formfield">
+            <label for="age">Age</label> 
+            <input type="text" name="age" id="age" onchange="checkAge(this);">
+        </div>
+        <div class="formfield">
+            <label for="surname">Surname</label>
+            <input type="text" name="last" id="surname" onchange="checkSurname(this);">
+        </div>
+        <div class="formfield">
+            <label for="id">Identifier</label>
+            <input type="text" name="id" id="id" onchange="checkId(this);">
+        </div>
+        <input type="button" value="Test" onclick="validate();">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
